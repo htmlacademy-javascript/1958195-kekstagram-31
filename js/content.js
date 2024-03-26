@@ -1,4 +1,6 @@
-import { getRandomInteger, getRandomArrayElement, getCount } from './functions.js';
+import { getRandomInteger, getRandomArrayElement, getNumberСopies, getCount } from './utils.js';
+
+// Комментарии
 
 const NAMES = [
   'Алина',
@@ -42,11 +44,47 @@ const getRandomeMessage = (array) => {
   return message;
 };
 
-const publicationComment = () => ({
+const getComment = () => ({
   id: countId(),
   avatar: `img/avatar-${ getRandomInteger(MIN_RANGE_AVATAR, MAX_RANGE_AVATAR) }.jpg`,
   message: getRandomeMessage(COMMENTS),
   name: getRandomArrayElement(NAMES),
 });
 
-export {publicationComment};
+// Публикация фото
+
+const DESCRIPTION = [
+  'Закат на пляже',
+  'Цветущий сад',
+  'Городские огни',
+  'Дикие лошади',
+  'Морская гладь',
+  'Радуга после дождя',
+  'Лесной туман',
+  'Играющие дети',
+  'Заснеженные горы',
+  'Поле подсолнухов',
+];
+
+const NUMBER_PUBLICATION = 25;
+
+const MIN_COMMENTS = 0;
+const MAX_COMMENTS = 30;
+
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+
+const countUrl = getCount(1);
+const countThumbnailId = getCount(1);
+
+const getPhoto = () => ({
+  id: `thumbnail-id-${ countThumbnailId() }`,
+  url: `photos/${ countUrl() }.jpg`,
+  alt: getRandomArrayElement(DESCRIPTION),
+  likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
+  comment: getNumberСopies(getComment, MIN_COMMENTS, MAX_COMMENTS),
+});
+
+const publicationPhoto = getNumberСopies(getPhoto, NUMBER_PUBLICATION, NUMBER_PUBLICATION);
+
+export {publicationPhoto};
