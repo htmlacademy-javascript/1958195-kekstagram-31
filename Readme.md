@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Фаррух Алимов](https://up.htmlacademy.ru/javascript/31/user/1958195).
-* Наставник: [Артём Картавый](https://htmlacademy.ru/profile/artem_k).
+* Наставник: [Василий Петрухин](https://htmlacademy.ru/profile/id1528403).
 
 ---
 
